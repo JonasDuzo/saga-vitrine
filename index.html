@@ -34,7 +34,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <!-- ?v= força o celular a baixar a versão nova. Aumente o número a cada atualização. -->
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 
@@ -80,15 +80,20 @@
       <div class="container">
         <div class="row g-4 g-lg-5 align-items-center hero-row">
           <div class="col-12 col-lg-6 hero-content">
+            <span class="hero-kicker"><span class="hero-kicker-dot" aria-hidden="true"></span>Sistema de gestão para APMs de ETECs</span>
             <h1 id="heroTitle">Chega de gerenciar a APM da ETEC em
-              <span class="underline-yellow">planilhas e cadernos</span>.</h1>
-            <p class="hero-sub">Tudo o que sua APM precisa em um só lugar: gestão financeira, associados, atas, cantina,
-              eventos, armários e biblioteca. Um sistema desenvolvido para facilitar a administração e apoiar uma gestão
-              transparente, em conformidade com o Estatuto da APM.</p>
+              <span class="hero-highlight">planilhas e cadernos</span>.</h1>
+            <p class="hero-sub">Financeiro, associados, atas, cantina, eventos, armários e biblioteca em um só lugar.
+              <span class="hero-sub-extra">Uma gestão mais simples e transparente, em conformidade com o Estatuto da APM.</span></p>
             <div class="hero-ctas">
-              <a href="#planos" class="saga-btn saga-btn-primary">Assinar agora</a>
-              <a href="#demonstracao" class="saga-btn saga-btn-outline">Agendar Teste Gratuito</a>
+              <a href="#demonstracao" class="saga-btn saga-btn-primary">Testar grátis</a>
+              <a href="#planos" class="saga-btn saga-btn-outline">Ver planos</a>
             </div>
+            <ul class="hero-trust" aria-label="Destaques">
+              <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.6 4.3 10.3l-1.4 1.4 4.7 4.7 9.5-9.5-1.4-1.4z" fill="currentColor"/></svg>Teste gratuito</li>
+              <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.6 4.3 10.3l-1.4 1.4 4.7 4.7 9.5-9.5-1.4-1.4z" fill="currentColor"/></svg>Conforme o Estatuto</li>
+              <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.6 4.3 10.3l-1.4 1.4 4.7 4.7 9.5-9.5-1.4-1.4z" fill="currentColor"/></svg>100% online</li>
+            </ul>
           </div>
           <div class="col-12 col-lg-6">
             <!-- O iframe é criado pelo js/script.js a partir de data-video-url (YouTube ou Vimeo). -->
@@ -355,61 +360,61 @@
           <div class="col">
             <figure class="shot reveal">
               <button type="button" class="shot-btn" aria-label="Ampliar: Painel inicial">
-                <img src="img/sistema/01-painel.svg" width="1280" height="800" loading="lazy" decoding="async"
-                  alt="Painel inicial do SAGA com saldo, receitas e despesas do mês">
+                <img src="img/sistema/01-painel.jpg" width="1440" height="900" loading="lazy" decoding="async"
+                  alt="Painel geral do SAGA com saldo do ano, receitas, despesas, fundo de reserva e gráficos">
               </button>
-              <figcaption><strong>Painel inicial</strong><span>Saldo, receitas e despesas da APM em tempo
-                  real.</span></figcaption>
+              <figcaption><strong>Painel geral</strong><span>Saldo, receitas, despesas e fundo de reserva
+                  da APM em uma só tela.</span></figcaption>
             </figure>
           </div>
           <div class="col">
             <figure class="shot reveal d1">
               <button type="button" class="shot-btn" aria-label="Ampliar: Financeiro">
-                <img src="img/sistema/02-financeiro.svg" width="1280" height="800" loading="lazy" decoding="async"
-                  alt="Tela de lançamentos financeiros do SAGA">
+                <img src="img/sistema/02-financeiro.jpg" width="1440" height="900" loading="lazy" decoding="async"
+                  alt="Tela de movimentações financeiras do SAGA, com receitas e despesas por fonte">
               </button>
-              <figcaption><strong>Financeiro</strong><span>Lançamentos por categoria, com comprovantes
-                  anexados.</span></figcaption>
+              <figcaption><strong>Financeiro</strong><span>Receitas e despesas detalhadas por fonte, com
+                  exportação para Excel.</span></figcaption>
             </figure>
           </div>
           <div class="col">
             <figure class="shot reveal d2">
               <button type="button" class="shot-btn" aria-label="Ampliar: Prestação de contas">
-                <img src="img/sistema/03-prestacao-contas.svg" width="1280" height="800" loading="lazy"
-                  decoding="async" alt="Relatório de prestação de contas gerado pelo SAGA">
+                <img src="img/sistema/03-prestacao-contas.jpg" width="1440" height="900" loading="lazy"
+                  decoding="async" alt="Balanço anual da APM no SAGA, com o cálculo do fundo de reserva">
               </button>
-              <figcaption><strong>Prestação de contas</strong><span>Relatórios prontos para a
-                  assembleia.</span></figcaption>
+              <figcaption><strong>Prestação de contas</strong><span>Balanço anual mês a mês e fundo de
+                  reserva calculado conforme o Estatuto.</span></figcaption>
             </figure>
           </div>
           <div class="col">
             <figure class="shot reveal">
               <button type="button" class="shot-btn" aria-label="Ampliar: Associados">
-                <img src="img/sistema/04-associados.svg" width="1280" height="800" loading="lazy" decoding="async"
+                <img src="img/sistema/04-associados.jpg" width="1440" height="900" loading="lazy" decoding="async"
                   alt="Lista de associados da APM no SAGA">
               </button>
-              <figcaption><strong>Associados</strong><span>Cadastro completo e controle de
-                  mensalidades.</span></figcaption>
+              <figcaption><strong>Associados</strong><span>Natos, admitidos e honorários, classificados
+                  conforme o Estatuto.</span></figcaption>
             </figure>
           </div>
           <div class="col">
             <figure class="shot reveal d1">
               <button type="button" class="shot-btn" aria-label="Ampliar: Cantina">
-                <img src="img/sistema/05-cantina.svg" width="1280" height="800" loading="lazy" decoding="async"
-                  alt="Módulo de cantina do SAGA com vendas e caixa">
+                <img src="img/sistema/05-cantina.jpg" width="1440" height="900" loading="lazy" decoding="async"
+                  alt="Painel da cantina no SAGA, com vendas, lucro bruto e formas de pagamento">
               </button>
-              <figcaption><strong>Cantina</strong><span>Vendas, caixa e fornecedores no mesmo
+              <figcaption><strong>Cantina</strong><span>Vendas, lucro, gastos e formas de pagamento no mesmo
                   lugar.</span></figcaption>
             </figure>
           </div>
           <div class="col">
             <figure class="shot reveal d2">
               <button type="button" class="shot-btn" aria-label="Ampliar: Atas">
-                <img src="img/sistema/06-atas.svg" width="1280" height="800" loading="lazy" decoding="async"
-                  alt="Registro de atas de reunião no SAGA">
+                <img src="img/sistema/06-atas.jpg" width="1440" height="900" loading="lazy" decoding="async"
+                  alt="Lista de atas de assembleias e reuniões no SAGA">
               </button>
-              <figcaption><strong>Atas</strong><span>Histórico de reuniões e deliberações sempre
-                  acessível.</span></figcaption>
+              <figcaption><strong>Atas</strong><span>Assembleias, reuniões e Conselho Fiscal, do rascunho
+                  à aprovação.</span></figcaption>
             </figure>
           </div>
         </div>
