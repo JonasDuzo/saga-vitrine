@@ -4,7 +4,7 @@
    Use DDI 55 + DDD + número, só dígitos. Ex.: '5511999999999'
    ========================================================= */
 var SAGA_CONFIG = window.SAGA_CONFIG || {
-    whatsappNumber: ''
+    whatsappNumber: '5519983561481'
 };
 
 document.addEventListener('DOMContentLoaded', function () {
