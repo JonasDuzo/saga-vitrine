@@ -1,3 +1,12 @@
+/* =========================================================
+   CONFIGURAÇÃO DO SITE
+   whatsappNumber: número que recebe as solicitações do formulário.
+   Use DDI 55 + DDD + número, só dígitos. Ex.: '5511999999999'
+   ========================================================= */
+var SAGA_CONFIG = window.SAGA_CONFIG || {
+    whatsappNumber: ''
+};
+
 document.addEventListener('DOMContentLoaded', function () {
     /* ===== Header: sombra ao rolar, barra de progresso e botão voltar ao topo ===== */
     var header = document.getElementById('siteHeader');
@@ -141,31 +150,132 @@ document.addEventListener('DOMContentLoaded', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    /* ===== Menu hambúrguer ===== */
-    var burger = document.getElementById('burgerBtn');
-    var mobileMenu = document.getElementById('mobileMenu');
-    var burgerIcon = document.getElementById('burgerIcon');
-    var menuOpen = false;
+    /* ===== Menu (navbar collapse do Bootstrap) ===== */
+    var mainNav = document.getElementById('mainNav');
+    var navToggler = document.querySelector('.navbar-toggler');
+    var hasBootstrap = typeof window.bootstrap !== 'undefined';
+    var navCollapse = (mainNav && hasBootstrap)
+        ? bootstrap.Collapse.getOrCreateInstance(mainNav, { toggle: false })
+        : null;
 
-    function setMenu(open) {
-        menuOpen = open;
-        mobileMenu.classList.toggle('open', open);
-        burger.setAttribute('aria-expanded', String(open));
-        burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-        burgerIcon.innerHTML = open
-            ? '<line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line>'
-            : '<line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line>';
+    if (mainNav) {
+        mainNav.addEventListener('show.bs.collapse', function () {
+            header.classList.add('menu-open');
+            if (navToggler) navToggler.setAttribute('aria-label', 'Fechar menu');
+        });
+        mainNav.addEventListener('hidden.bs.collapse', function () {
+            header.classList.remove('menu-open');
+            if (navToggler) navToggler.setAttribute('aria-label', 'Abrir menu');
+        });
+        /* Fecha o menu ao escolher um link (celular) */
+        mainNav.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                if (navCollapse && mainNav.classList.contains('show')) navCollapse.hide();
+            });
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && navCollapse && mainNav.classList.contains('show')) {
+                navCollapse.hide();
+                if (navToggler) navToggler.focus();
+            }
+        });
+        /* Fecha o menu ao tocar fora dele */
+        document.addEventListener('click', function (e) {
+            if (navCollapse && mainNav.classList.contains('show') && !header.contains(e.target)) {
+                navCollapse.hide();
+            }
+        });
     }
-    burger.addEventListener('click', function () { setMenu(!menuOpen); });
-    mobileMenu.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () { setMenu(false); });
-    });
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && menuOpen) { setMenu(false); burger.focus(); }
-    });
-    window.addEventListener('resize', function () {
-        if (window.innerWidth >= 1024 && menuOpen) setMenu(false);
-    }, { passive: true });
+
+    /* Destaca no menu a seção visível */
+    var navLinks = Array.from(document.querySelectorAll('#mainNav .nav-link'));
+    if ('IntersectionObserver' in window && navLinks.length) {
+        var spy = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                var id = '#' + entry.target.id;
+                navLinks.forEach(function (link) {
+                    var active = link.getAttribute('href') === id;
+                    link.classList.toggle('active', active);
+                    if (active) link.setAttribute('aria-current', 'true');
+                    else link.removeAttribute('aria-current');
+                });
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        navLinks.forEach(function (link) {
+            var section = document.querySelector(link.getAttribute('href'));
+            if (section) spy.observe(section);
+        });
+    }
+
+    /* ===== Galeria de telas: modal com carrossel montado a partir da grade ===== */
+    var galleryGrid = document.getElementById('galleryGrid');
+    var galleryModalEl = document.getElementById('galleryModal');
+    var galleryInner = document.getElementById('galleryInner');
+    var galleryCarouselEl = document.getElementById('galleryCarousel');
+
+    if (galleryGrid && galleryModalEl && galleryInner && galleryCarouselEl) {
+        var shots = Array.from(galleryGrid.querySelectorAll('.shot'));
+
+        shots.forEach(function (shot, i) {
+            var img = shot.querySelector('img');
+            var cap = shot.querySelector('figcaption');
+            var item = document.createElement('div');
+            item.className = 'carousel-item' + (i === 0 ? ' active' : '');
+
+            var big = document.createElement('img');
+            big.src = img.getAttribute('src');
+            big.alt = img.getAttribute('alt') || '';
+            big.loading = 'lazy';
+            big.decoding = 'async';
+            item.appendChild(big);
+
+            if (cap) {
+                var c = document.createElement('div');
+                c.className = 'gallery-caption';
+                c.innerHTML = cap.innerHTML.replace('</strong>', '</strong> — ');
+                item.appendChild(c);
+            }
+            galleryInner.appendChild(item);
+        });
+
+        if (shots.length < 2) {
+            galleryCarouselEl.querySelectorAll('.carousel-control-prev, .carousel-control-next')
+                .forEach(function (b) { b.hidden = true; });
+        }
+
+        if (hasBootstrap) {
+            var galleryModal = bootstrap.Modal.getOrCreateInstance(galleryModalEl);
+            var galleryCarousel = bootstrap.Carousel.getOrCreateInstance(galleryCarouselEl, {
+                interval: false,
+                touch: true,
+                keyboard: true
+            });
+
+            shots.forEach(function (shot, i) {
+                var btn = shot.querySelector('.shot-btn');
+                btn.addEventListener('click', function () {
+                    galleryCarousel.to(i);
+                    galleryModal.show(btn);
+                });
+            });
+
+            /* Setas do teclado navegam entre as telas com o modal aberto */
+            galleryModalEl.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowRight') galleryCarousel.next();
+                if (e.key === 'ArrowLeft') galleryCarousel.prev();
+            });
+        } else {
+            /* Sem Bootstrap (CDN bloqueado): abre a imagem em nova aba */
+            shots.forEach(function (shot) {
+                var btn = shot.querySelector('.shot-btn');
+                var img = shot.querySelector('img');
+                btn.addEventListener('click', function () {
+                    window.open(img.currentSrc || img.src, '_blank', 'noopener');
+                });
+            });
+        }
+    }
 
     /* ===== Animações de entrada com IntersectionObserver ===== */
     var reveals = document.querySelectorAll('.reveal');
@@ -184,8 +294,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ===== Carrossel de módulos ===== */
-
-    /* ===== Carrossel de módulos ===== */
     var carousel = document.getElementById('carousel');
     var carPrev = document.getElementById('carPrev');
     var carNext = document.getElementById('carNext');
@@ -193,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (carousel && carPrev && carNext && carDots) {
 
-        var carCards = Array.from(carousel.querySelectorAll('.card'));
+        var carCards = Array.from(carousel.querySelectorAll('.saga-card'));
         var dotEls = [];
         var dragging = false;
         var dragMoved = false;
@@ -451,16 +559,33 @@ document.addEventListener('DOMContentLoaded', function () {
         tel.value = out;
     });
 
-    /*
-     * Configure este endpoint antes da publicação:
-     * window.SAGA_CONFIG.formEndpoint = 'https://seu-dominio.com/api/solicitacoes';
-     * O endpoint deve aceitar POST JSON e permitir CORS para o domínio do site.
-     */
-    window.SAGA_CONFIG = window.SAGA_CONFIG || { formEndpoint: '' };
+    /* ===== Envio do formulário pelo WhatsApp ===== */
     var formStatus = document.getElementById('formStatus');
-    var submitButton = document.getElementById('submitDemo');
+    var whatsLink = document.getElementById('whatsLink');
 
-    form.addEventListener('submit', async function (e) {
+    function getWhatsNumber() {
+        /* Somente dígitos, com DDI 55 + DDD + número */
+        return String(SAGA_CONFIG.whatsappNumber || '').replace(/\D/g, '');
+    }
+
+    function buildWhatsMessage() {
+        var v = function (id) { return document.getElementById(id).value.trim(); };
+        var plano = v('fPlano');
+        var mensagem = v('fMensagem');
+        var linhas = [
+            'Olá! Gostaria de solicitar o *Teste Gratuito do SAGA*.',
+            '',
+            '*Nome:* ' + v('fNome'),
+            '*ETEC:* ' + v('fEscola'),
+            '*E-mail:* ' + v('fEmail'),
+            '*WhatsApp:* ' + v('fTelefone')
+        ];
+        if (plano) linhas.push('*Plano de interesse:* ' + plano);
+        if (mensagem) linhas.push('', '*Mensagem:*', mensagem);
+        return linhas.join('\n');
+    }
+
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
         var ids = ['fNome', 'fEscola', 'fEmail', 'fTelefone', 'fMensagem'];
         var ok = true;
@@ -474,44 +599,32 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        var endpoint = String(window.SAGA_CONFIG.formEndpoint || '').trim();
-        if (!endpoint) {
-            formStatus.textContent = 'O canal de recebimento ainda não foi configurado. A equipe responsável precisa definir o endpoint do formulário antes de habilitar o envio.';
+        var number = getWhatsNumber();
+        if (number.length < 12 || number.length > 13) {
+            formStatus.textContent = 'O número de WhatsApp de atendimento ainda não foi configurado. Tente novamente mais tarde.';
             formStatus.hidden = false;
             return;
         }
-
-        if (!/^https:\/\//i.test(endpoint)) {
-            formStatus.textContent = 'O endereço de envio configurado é inválido. Entre em contato com o administrador do site.';
-            formStatus.hidden = false;
-            return;
-        }
-
         formStatus.hidden = true;
-        submitButton.disabled = true;
-        submitButton.setAttribute('aria-busy', 'true');
-        submitButton.textContent = 'Enviando...';
 
-        var payload = Object.fromEntries(new FormData(form).entries());
-        try {
-            var response = await fetch(endpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            if (!response.ok) throw new Error('HTTP ' + response.status);
-            formArea.style.display = 'none';
-            successBox.classList.add('show');
-            successBox.setAttribute('tabindex', '-1');
-            successBox.focus();
-        } catch (error) {
-            formStatus.textContent = 'Não foi possível enviar sua solicitação agora. Verifique sua conexão e tente novamente.';
-            formStatus.hidden = false;
-        } finally {
-            submitButton.disabled = false;
-            submitButton.removeAttribute('aria-busy');
-            submitButton.textContent = 'Solicitar demonstração';
+        var url = 'https://wa.me/' + number + '?text=' + encodeURIComponent(buildWhatsMessage());
+        if (whatsLink) whatsLink.href = url;
+
+        /* Abre o WhatsApp no mesmo clique (evita bloqueio de pop-up).
+           No celular abre o app; no computador, o WhatsApp Web em nova aba. */
+        var isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+        if (isTouch) {
+            window.location.href = url;
+        } else {
+            var win = window.open(url, '_blank');
+            if (win) win.opener = null;
+            else window.location.href = url;
         }
+
+        formArea.style.display = 'none';
+        successBox.classList.add('show');
+        successBox.setAttribute('tabindex', '-1');
+        successBox.focus({ preventScroll: true });
     });
 
     resetBtn.addEventListener('click', function () {

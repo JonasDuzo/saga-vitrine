@@ -1,199 +1,197 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SAGA — Sistema de Apoio à Gestão das APMs</title>
+  <meta name="description"
+    content="SAGA: sistema para gestão financeira, associados, atas, cantina, eventos, armários e biblioteca das APMs das ETECs, com prestação de contas pronta.">
   <meta name="theme-color" content="#131628">
   <meta name="color-scheme" content="light">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / redes sociais -->
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="SAGA">
   <meta property="og:title" content="SAGA — Sistema de Apoio à Gestão das APMs">
   <meta property="og:description"
     content="Gestão financeira e administrativa para as Associações de Pais e Mestres das ETECs.">
-  <meta name="twitter:card" content="summary">
+  <!-- Ao publicar, troque SEU-DOMINIO pelo domínio real e descomente:
+  <link rel="canonical" href="https://SEU-DOMINIO/">
+  <meta property="og:url" content="https://SEU-DOMINIO/">
+  <meta property="og:image" content="https://SEU-DOMINIO/img/logo-apm.png">
+  -->
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" href="img/favicon.ico">
-  <link rel="stylesheet" href="css/style.css" type="text/css">
-  <title>SAGA — Sistema de Apoio à Gestão das APM's</title>
-  <meta name="description"
-    content="SAGA: sistema para gestão financeira, associados, atas, cantina, eventos, armários e biblioteca das APMs das ETEC's, com prestação de contas pronta.">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <!-- ?v= força o celular a baixar a versão nova. Aumente o número a cada atualização. -->
+  <link rel="stylesheet" href="css/style.css?v=3">
   <script>document.documentElement.classList.add('js');</script>
-
 </head>
 
 <body>
 
-  <!-- Barra de progresso de leitura (discreta) -->
-  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+  <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
 
-  <!-- 1. Header fixo -->
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a href="#topo" class="logo" aria-label="SAGA — página inicial">
-        <img src="img/logo-apm.png" width="130" height="56" alt="SAGA — Sistema de Apoio à Gestão das APMs"
-          fetchpriority="high">
-      </a>
-      <nav class="nav-desktop" aria-label="Navegação principal">
-        <a href="#funcionalidades">Funcionalidades</a>
-        <a href="#planos">Planos</a>
-        <a href="#seguranca">Segurança</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <div class="row gap-2">
-        <a href="#planos" class="saga-btn saga-btn-primary saga-btn-sm header-cta">Assinar agora</a>
-        <button class="burger" id="burgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            id="burgerIcon" aria-hidden="true">
-            <line x1="4" y1="7" x2="20" y2="7"></line>
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="17" x2="20" y2="17"></line>
-          </svg>
+  <!-- Barra de progresso de leitura -->
+  <div class="read-progress" id="progressBar" aria-hidden="true"></div>
+
+  <!-- Header fixo (navbar Bootstrap) -->
+  <header class="site-header fixed-top" id="siteHeader">
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegação principal">
+      <div class="container">
+        <a href="#topo" class="navbar-brand logo" aria-label="SAGA — página inicial">
+          <img src="img/logo-apm.png" width="130" height="56" alt="SAGA — Sistema de Apoio à Gestão das APMs"
+            fetchpriority="high">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#funcionalidades">Funcionalidades</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sistema">Conheça o sistema</a></li>
+            <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#seguranca">Segurança</a></li>
+            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+            <li class="nav-item nav-cta">
+              <a href="#planos" class="saga-btn saga-btn-primary saga-btn-sm">Assinar agora</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#funcionalidades">Funcionalidades</a>
-      <a href="#planos">Planos</a>
-      <a href="#seguranca">Segurança</a>
-      <a href="#faq">FAQ</a>
-      <a href="#planos" class="saga-btn saga-btn-primary">Assinar agora</a>
-    </div>
+    </nav>
   </header>
 
   <main id="topo">
 
-    <!-- 2. Hero -->
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <h1 id="heroTitle" style="margin-top:18px; text-shadow: 2px 2px 5px black;">Chega de gerenciar a APM da ETEC
-            em <span class="underline-yellow">planilhas e
-              cadernos</span>.</h1>
-          <p class="hero-sub">Tudo o que sua APM precisa em um só lugar: gestão financeira, associados, atas, cantina,
-            eventos, armários e biblioteca. Um sistema desenvolvido para facilitar a administração e apoiar uma gestão
-            transparente, em conformidade com o Estatuto da APM.
-          </p>
-          <div class="hero-ctas">
-            <a href="#planos" class="saga-btn saga-btn-primary">Assinar agora</a>
-            <a href="#demonstracao" class="saga-btn saga-btn-outline">Agendar Teste Gratuito</a>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="heroTitle" id="conteudo">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center hero-row">
+          <div class="col-12 col-lg-6 hero-content">
+            <h1 id="heroTitle">Chega de gerenciar a APM da ETEC em
+              <span class="underline-yellow">planilhas e cadernos</span>.</h1>
+            <p class="hero-sub">Tudo o que sua APM precisa em um só lugar: gestão financeira, associados, atas, cantina,
+              eventos, armários e biblioteca. Um sistema desenvolvido para facilitar a administração e apoiar uma gestão
+              transparente, em conformidade com o Estatuto da APM.</p>
+            <div class="hero-ctas">
+              <a href="#planos" class="saga-btn saga-btn-primary">Assinar agora</a>
+              <a href="#demonstracao" class="saga-btn saga-btn-outline">Agendar Teste Gratuito</a>
+            </div>
           </div>
-          <!-- <div class="trust-badges" aria-label="Selos de confiança">
-            <span class="trust-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" />
-              </svg>
-              30 dias gratuito
-            </span>
-            <span class="trust-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <rect x="4" y="10" width="16" height="11" rx="2" />
-                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
-              </svg>
-              Dados seguros
-            </span>
-            <span class="trust-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg>
-              Suporte em português
-            </span>
-          </div> -->
-        </div>
-        <!-- O vídeo fica em uma coluna própria à direita do texto no desktop. -->
-        <div class="hero-video" id="heroVideo" data-video-url="">
-
-          <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/FPPXY3cn5FY?autoplay=1&mute=1&controls=1&cc_load_policy=0&rel=0&playsinline=1"
-            title="Vídeo institucional" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-          </iframe>
-
+          <div class="col-12 col-lg-6">
+            <!-- O iframe é criado pelo js/script.js a partir de data-video-url (YouTube ou Vimeo). -->
+            <div class="hero-video" id="heroVideo" data-video-url="https://www.youtube.com/watch?v=FPPXY3cn5FY">
+              <a class="hero-video-placeholder" href="https://www.youtube.com/watch?v=FPPXY3cn5FY" target="_blank"
+                rel="noopener">
+                <span class="hero-video-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+                <span class="hero-video-placeholder-title">Assista à apresentação do SAGA</span>
+                <span class="hero-video-placeholder-text">Abre o vídeo no YouTube</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. O problema -->
+    <!-- O problema -->
     <section class="block bg-gray" id="problema">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">O problema</span>
-          <h2 style="margin-top:14px;">A gestão manual da APM expõe a associação a riscos</h2>
+          <h2>A gestão manual da APM expõe a associação a riscos</h2>
           <p class="lead">Quem administra o dinheiro da APM de uma ETEC sabe o peso de cada centavo.</p>
         </div>
 
-        <div class="grid-3">
-          <article class="card pain-card reveal">
-            <span class="x-mark">×</span>
-            <h3>Planilhas desencontradas</h3>
-            <p>Versões diferentes do mesmo arquivo circulam entre diretoria e tesouraria, e ninguém tem certeza do saldo
-              real.</p>
-          </article>
-
-          <article class="card pain-card reveal d1">
-            <span class="x-mark">×</span>
-            <h3>Prestação de contas em cima da hora</h3>
-            <p>Juntar notas, recibos e extratos às vésperas da assembleia gera estresse e relatórios incompletos.</p>
-          </article>
-
-          <article class="card pain-card reveal d2">
-            <span class="x-mark">×</span>
-            <h3>Mensalidades controladas no caderno</h3>
-            <p>Quem pagou, quem atrasou e quem foi cobrado de novo viram uma conta difícil de fechar.</p>
-          </article>
-
-          <article class="card pain-card reveal d3">
-            <span class="x-mark">×</span>
-            <h3>Risco de questionamento do dinheiro</h3>
-            <p>Sem rastreabilidade de cada lançamento, qualquer dúvida de pais ou direção vira desconfiança.</p>
-          </article>
-
-          <article class="card pain-card reveal d4">
-            <span class="x-mark">×</span>
-            <h3>Informações espalhadas e desorganizadas</h3>
-            <p>Atas, documentos, cadastros e informações importantes ficam distribuídos em diferentes arquivos e pastas,
-              dificultando o acesso e a continuidade da gestão.</p>
-          </article>
-
-          <article class="card pain-card reveal d5">
-            <span class="x-mark">×</span>
-            <h3>Controles manuais em vários setores</h3>
-            <p>Cantina, biblioteca, armários e eventos exigem controles separados, aumentando o trabalho da equipe e as
-              chances de erros.</p>
-          </article>
+        <div class="row g-3 g-md-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
+          <div class="col">
+            <article class="saga-card pain-card h-100 reveal">
+              <span class="x-mark" aria-hidden="true">×</span>
+              <h3>Planilhas desencontradas</h3>
+              <p>Versões diferentes do mesmo arquivo circulam entre diretoria e tesouraria, e ninguém tem certeza do
+                saldo real.</p>
+            </article>
+          </div>
+          <div class="col">
+            <article class="saga-card pain-card h-100 reveal d1">
+              <span class="x-mark" aria-hidden="true">×</span>
+              <h3>Prestação de contas em cima da hora</h3>
+              <p>Juntar notas, recibos e extratos às vésperas da assembleia gera estresse e relatórios incompletos.</p>
+            </article>
+          </div>
+          <div class="col">
+            <article class="saga-card pain-card h-100 reveal d2">
+              <span class="x-mark" aria-hidden="true">×</span>
+              <h3>Mensalidades controladas no caderno</h3>
+              <p>Quem pagou, quem atrasou e quem foi cobrado de novo viram uma conta difícil de fechar.</p>
+            </article>
+          </div>
+          <div class="col">
+            <article class="saga-card pain-card h-100 reveal">
+              <span class="x-mark" aria-hidden="true">×</span>
+              <h3>Risco de questionamento do dinheiro</h3>
+              <p>Sem rastreabilidade de cada lançamento, qualquer dúvida de pais ou direção vira desconfiança.</p>
+            </article>
+          </div>
+          <div class="col">
+            <article class="saga-card pain-card h-100 reveal d1">
+              <span class="x-mark" aria-hidden="true">×</span>
+              <h3>Informações espalhadas e desorganizadas</h3>
+              <p>Atas, documentos, cadastros e informações importantes ficam distribuídos em diferentes arquivos e
+                pastas, dificultando o acesso e a continuidade da gestão.</p>
+            </article>
+          </div>
+          <div class="col">
+            <article class="saga-card pain-card h-100 reveal d2">
+              <span class="x-mark" aria-hidden="true">×</span>
+              <h3>Controles manuais em vários setores</h3>
+              <p>Cantina, biblioteca, armários e eventos exigem controles separados, aumentando o trabalho da equipe e
+                as chances de erros.</p>
+            </article>
+          </div>
         </div>
 
         <div class="pain-bottom reveal">
           <p><strong>Resultado:</strong> horas perdidas com conferência manual, informações descentralizadas e pouca
             confiança na prestação de contas. O SAGA organiza essa rotina desde o primeiro lançamento.</p>
-          <a href="#funcionalidades" class="saga-btn saga-btn-blue saga-btn-sm">Ver como resolvemos</a>
+          <a href="#funcionalidades" class="saga-btn saga-btn-green saga-btn-sm">Ver como resolvemos</a>
         </div>
       </div>
     </section>
 
-
-    <!-- 5. Funcionalidades -->
+    <!-- Funcionalidades -->
     <section class="block" id="funcionalidades">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Como o SAGA resolve</span>
-          <h2 style="margin-top:14px;">Tudo o que a APM precisa, em módulos integrados</h2>
+          <h2>Tudo o que a APM precisa, em módulos integrados</h2>
           <p class="lead">Baseado nas diretrizes do Estatuto da APM, o SAGA reúne 11 módulos integrados entre si: o que
             entra no caixa reflete na prestação de contas, as informações ficam centralizadas e a burocracia dá lugar a
             uma gestão mais organizada, transparente e eficiente.</p>
         </div>
         <div class="carousel-wrap reveal">
-          <button type="button" class="car-btn car-prev" id="carPrev" aria-label="Anterior" disabled>
+          <button type="button" class="car-btn car-prev" id="carPrev" aria-label="Módulo anterior" disabled>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
               aria-hidden="true">
               <polyline points="15 18 9 12 15 6" />
             </svg>
           </button>
-          <div class="carousel" id="carousel" tabindex="0" role="region" aria-roledescription="carrossel"
-            aria-label="11 módulos de gestão do SAGA">
-            <article class="card reveal">
+          <div class="mod-track" id="carousel" tabindex="0" role="region" aria-roledescription="carrossel"
+            aria-label="Módulos de gestão do SAGA">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" aria-hidden="true">
                   <line x1="12" y1="1" x2="12" y2="23" />
@@ -202,7 +200,7 @@
               <h3>Financeiro</h3>
               <p>Receitas, despesas, categorias, conciliação e prestação de contas pronta para apresentar.</p>
             </article>
-            <article class="card reveal d1">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" aria-hidden="true">
                   <circle cx="9" cy="7" r="4" />
@@ -213,7 +211,7 @@
               <p>Cadastro de pais, responsáveis, docentes, servidores, alunos maiores de 16 anos, ex-alunos,
                 ex-professores e comunidade.</p>
             </article>
-            <article class="card reveal d2">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" aria-hidden="true">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -224,7 +222,7 @@
               <h3>Atas</h3>
               <p>Registro de reuniões, decisões e deliberações, mantendo o histórico da APM sempre acessível.</p>
             </article>
-            <article class="card reveal d3">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <circle cx="12" cy="7" r="3" />
@@ -238,7 +236,7 @@
               <p>Registro da Diretoria Executiva e do Conselho Fiscal, com controle de cargos, membros, mandatos e
                 composição.</p>
             </article>
-            <article class="card reveal d4">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="3" y="4" width="18" height="17" rx="2" />
@@ -251,7 +249,7 @@
               <p>Elaboração e acompanhamento do Plano Anual de Trabalho, com registro das propostas e aprovação pela
                 Assembleia Geral.</p>
             </article>
-            <article class="card reveal d5">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="m3 7 9-4 9 4-9 4-9-4Z" />
@@ -263,7 +261,7 @@
               <p>Controle do Patrimônio da APM, com registro de bens, especificações, estado de conservação, valores e
                 emissão de relatórios.</p>
             </article>
-            <article class="card reveal d6">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="m2 10 10-5 10 5-10 5-10-5Z" />
@@ -274,7 +272,7 @@
               <p>Cadastro de alunos e turmas da ETEC, com organização dos dados dos estudantes e gerenciamento das
                 informações por sala e período letivo.</p>
             </article>
-            <article class="card reveal d7">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" aria-hidden="true">
                   <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
@@ -287,7 +285,7 @@
               <p>Gestão completa da Cantina, com controle de pedidos, fornecedores, vendas, caixa e relatórios de
                 desempenho por período.</p>
             </article>
-            <article class="card reveal d8">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="m8 12 2-2a2 2 0 0 1 3 0l1 1" />
@@ -301,7 +299,7 @@
               <p>Cadastro de funcionários, organização de eventos públicos e privados, controle de patrocinadores e
                 emissão de carteirinhas de associados.</p>
             </article>
-            <article class="card reveal d9">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" aria-hidden="true">
                   <path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" />
@@ -313,7 +311,7 @@
               <p>Controle de cópias impressas de alunos e funcionários, registro de vendas e gerenciamento de armários e
                 vagas de estacionamento.</p>
             </article>
-            <article class="card reveal d10">
+            <article class="saga-card">
               <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="5" y="4" width="14" height="18" rx="2" />
@@ -328,62 +326,148 @@
                 denúncias.</p>
             </article>
           </div>
-          <button type="button" class="car-btn car-next" id="carNext" aria-label="Próximo">
+          <button type="button" class="car-btn car-next" id="carNext" aria-label="Próximo módulo">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
               aria-hidden="true">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </button>
         </div>
-        <div class="car-dots" id="carDots" role="group" aria-label="Navegação entre os módulos">
+        <div class="car-dots" id="carDots" role="group" aria-label="Navegação entre os módulos"></div>
+      </div>
+    </section>
+
+    <!-- Galeria: telas do sistema -->
+    <section class="block bg-gray" id="sistema">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Conheça o sistema</span>
+          <h2>Veja o SAGA por dentro</h2>
+          <p class="lead">As principais telas que a equipe da APM usa no dia a dia. Toque em uma imagem para ampliar.</p>
+        </div>
+
+        <!--
+          Para trocar as imagens: coloque as capturas em img/sistema/ e altere o src de cada <img>.
+          Para adicionar uma tela, copie um bloco <div class="col"> inteiro. A janela ampliada
+          (modal) é montada automaticamente a partir desta lista pelo js/script.js.
+        -->
+        <div class="row g-3 g-md-4 row-cols-1 row-cols-sm-2 row-cols-lg-3" id="galleryGrid">
+          <div class="col">
+            <figure class="shot reveal">
+              <button type="button" class="shot-btn" aria-label="Ampliar: Painel inicial">
+                <img src="img/sistema/01-painel.svg" width="1280" height="800" loading="lazy" decoding="async"
+                  alt="Painel inicial do SAGA com saldo, receitas e despesas do mês">
+              </button>
+              <figcaption><strong>Painel inicial</strong><span>Saldo, receitas e despesas da APM em tempo
+                  real.</span></figcaption>
+            </figure>
+          </div>
+          <div class="col">
+            <figure class="shot reveal d1">
+              <button type="button" class="shot-btn" aria-label="Ampliar: Financeiro">
+                <img src="img/sistema/02-financeiro.svg" width="1280" height="800" loading="lazy" decoding="async"
+                  alt="Tela de lançamentos financeiros do SAGA">
+              </button>
+              <figcaption><strong>Financeiro</strong><span>Lançamentos por categoria, com comprovantes
+                  anexados.</span></figcaption>
+            </figure>
+          </div>
+          <div class="col">
+            <figure class="shot reveal d2">
+              <button type="button" class="shot-btn" aria-label="Ampliar: Prestação de contas">
+                <img src="img/sistema/03-prestacao-contas.svg" width="1280" height="800" loading="lazy"
+                  decoding="async" alt="Relatório de prestação de contas gerado pelo SAGA">
+              </button>
+              <figcaption><strong>Prestação de contas</strong><span>Relatórios prontos para a
+                  assembleia.</span></figcaption>
+            </figure>
+          </div>
+          <div class="col">
+            <figure class="shot reveal">
+              <button type="button" class="shot-btn" aria-label="Ampliar: Associados">
+                <img src="img/sistema/04-associados.svg" width="1280" height="800" loading="lazy" decoding="async"
+                  alt="Lista de associados da APM no SAGA">
+              </button>
+              <figcaption><strong>Associados</strong><span>Cadastro completo e controle de
+                  mensalidades.</span></figcaption>
+            </figure>
+          </div>
+          <div class="col">
+            <figure class="shot reveal d1">
+              <button type="button" class="shot-btn" aria-label="Ampliar: Cantina">
+                <img src="img/sistema/05-cantina.svg" width="1280" height="800" loading="lazy" decoding="async"
+                  alt="Módulo de cantina do SAGA com vendas e caixa">
+              </button>
+              <figcaption><strong>Cantina</strong><span>Vendas, caixa e fornecedores no mesmo
+                  lugar.</span></figcaption>
+            </figure>
+          </div>
+          <div class="col">
+            <figure class="shot reveal d2">
+              <button type="button" class="shot-btn" aria-label="Ampliar: Atas">
+                <img src="img/sistema/06-atas.svg" width="1280" height="800" loading="lazy" decoding="async"
+                  alt="Registro de atas de reunião no SAGA">
+              </button>
+              <figcaption><strong>Atas</strong><span>Histórico de reuniões e deliberações sempre
+                  acessível.</span></figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 8. Segurança -->
-    <section class="block bg-dark" id="seguranca">
+    <!-- Segurança -->
+    <section class="block bg-night" id="seguranca">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow eyebrow-dark">Segurança e conformidade</span>
-          <h2 style="margin-top:14px;">Dados da APM da ETEC protegidos de ponta a ponta</h2>
+          <h2>Dados da APM da ETEC protegidos de ponta a ponta</h2>
           <p class="lead">Pensado para a sensibilidade das informações de pais, alunos e finanças da associação.</p>
         </div>
-        <div class="security-grid">
-          <div class="sec-card reveal">
-            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <rect x="4" y="10" width="16" height="11" rx="2" />
-                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
-              </svg></div>
-            <h3>Dados criptografados</h3>
-            <p>Informações trafegam e ficam armazenadas com criptografia, em conexão segura.</p>
+        <div class="row g-3 g-md-4 row-cols-1 row-cols-sm-2 row-cols-lg-4">
+          <div class="col">
+            <div class="sec-card h-100 reveal">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <rect x="4" y="10" width="16" height="11" rx="2" />
+                  <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                </svg></div>
+              <h3>Dados criptografados</h3>
+              <p>Informações trafegam e ficam armazenadas com criptografia, em conexão segura.</p>
+            </div>
           </div>
-          <div class="sec-card reveal d1">
-            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <path d="M21 12a9 9 0 1 1-3-6.7" />
-                <polyline points="21 3 21 9 15 9" />
-              </svg></div>
-            <h3>Backup automático</h3>
-            <p>Cópias de segurança diárias para recuperar a operação sem perda de lançamentos.</p>
+          <div class="col">
+            <div class="sec-card h-100 reveal d1">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path d="M21 12a9 9 0 1 1-3-6.7" />
+                  <polyline points="21 3 21 9 15 9" />
+                </svg></div>
+              <h3>Backup automático</h3>
+              <p>Cópias de segurança diárias para recuperar a operação sem perda de lançamentos.</p>
+            </div>
           </div>
-          <div class="sec-card reveal d2">
-            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" />
-              </svg></div>
-            <h3>Perfis de acesso</h3>
-            <p>Administrador, bibliotecário, responsável pela cantina e Assessor Técnico Administrativo (ATA).</p>
+          <div class="col">
+            <div class="sec-card h-100 reveal d2">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" />
+                </svg></div>
+              <h3>Perfis de acesso</h3>
+              <p>Administrador, bibliotecário, responsável pela cantina e Assessor Técnico Administrativo (ATA).</p>
+            </div>
           </div>
-          <div class="sec-card reveal d3">
-            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z" />
-                <polyline points="9 12 11 14 15 10" />
-              </svg></div>
-            <h3>LGPD</h3>
-            <p>Auditoria de cada ação e tratamento de dados alinhado à Lei Geral de Proteção de Dados.</p>
+          <div class="col">
+            <div class="sec-card h-100 reveal d3">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z" />
+                  <polyline points="9 12 11 14 15 10" />
+                </svg></div>
+              <h3>LGPD</h3>
+              <p>Auditoria de cada ação e tratamento de dados alinhado à Lei Geral de Proteção de Dados.</p>
+            </div>
           </div>
         </div>
         <div class="sec-note reveal">
@@ -392,111 +476,120 @@
             <line x1="12" y1="8" x2="12" y2="12" />
             <line x1="12" y1="16" x2="12.01" y2="16" />
           </svg>
-          <span>O SAGA é uma ferramenta de organização e controle para as APMs das ETEC's. <strong>Ele não substitui a
+          <span>O SAGA é uma ferramenta de organização e controle para as APMs das ETECs. <strong>Ele não substitui a
               orientação contábil formal</strong>, a assessoria jurídica nem as obrigações fiscais da APM, que devem ser
             conduzidas por profissionais habilitados.</span>
         </div>
       </div>
     </section>
 
-    <!-- 9. Planos -->
+    <!-- Planos -->
     <section class="block bg-gray" id="planos">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Planos</span>
-          <h2 style="margin-top:14px;">Escolha o plano ideal para a sua APM</h2>
+          <h2>Escolha o plano ideal para a sua APM</h2>
           <p class="lead">Um único sistema completo para a APM da sua ETEC.</p>
         </div>
-        <p class="plans-intro reveal"><strong>Todos os planos incluem o sistema completo, com todos os módulos.</strong></p>
-        <div class="plans-grid">
-          <article class="plan reveal">
-            <div class="plan-name">Mensal</div>
-            <div class="plan-price"><span class="cur">R$</span><span class="val">300</span><span class="per">/mês</span>
-            </div>
-            <div class="plan-total">Cobrança mensal</div>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>Sistema completo</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg><strong>30 dias de Teste Gratuito</strong></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>Usuários ilimitados da APM</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>Suporte incluído</li>
-            </ul>
-            <button type="button" class="saga-btn saga-btn-ghost plan-cta" data-plan="Mensal">Assinar</button>
-          </article>
+        <p class="plans-intro reveal"><strong>Todos os planos incluem o sistema completo, com todos os
+            módulos.</strong></p>
+        <div class="row g-4 justify-content-center plans-row">
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="plan h-100 reveal">
+              <div class="plan-name">Mensal</div>
+              <div class="plan-price"><span class="cur">R$</span><span class="val">300</span><span
+                  class="per">/mês</span></div>
+              <div class="plan-total">Cobrança mensal</div>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Sistema completo</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg><strong>30 dias de Teste Gratuito</strong></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Usuários ilimitados da APM</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Suporte incluído</li>
+              </ul>
+              <button type="button" class="saga-btn saga-btn-ghost plan-cta" data-plan="Mensal">Assinar</button>
+            </article>
+          </div>
 
-          <article class="plan featured reveal d1">
-            <span class="plan-badge">Recomendado</span>
-            <div class="plan-name">Semestral</div>
-            <div class="plan-price"><span class="cur">R$</span><span class="val">270</span><span class="per">/mês</span>
-            </div>
-            <div class="plan-total">Cobrado R$ 1.620 a cada 6 meses</div>
-            <span class="plan-saving">Economize 10%</span>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>Sistema completo</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg><strong>30 dias de Teste Gratuito</strong></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>Usuários ilimitados da APM</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>Suporte incluído</li>
-            </ul>
-            <button type="button" class="saga-btn saga-btn-primary plan-cta" data-plan="Semestral">Assinar</button>
-          </article>
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="plan featured h-100 reveal d1">
+              <span class="plan-badge">Recomendado</span>
+              <div class="plan-name">Semestral</div>
+              <div class="plan-price"><span class="cur">R$</span><span class="val">270</span><span
+                  class="per">/mês</span></div>
+              <div class="plan-total">Cobrado R$ 1.620 a cada 6 meses</div>
+              <span class="plan-saving">Economize 10%</span>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Sistema completo</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg><strong>30 dias de Teste Gratuito</strong></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Usuários ilimitados da APM</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Suporte incluído</li>
+              </ul>
+              <button type="button" class="saga-btn saga-btn-primary plan-cta" data-plan="Semestral">Assinar</button>
+            </article>
+          </div>
 
-          <article class="plan reveal d2">
-            <div class="plan-name">Anual</div>
-            <div class="plan-price"><span class="cur">R$</span><span class="val">240</span><span class="per">/mês</span>
-            </div>
-            <div class="plan-total">Cobrado R$ 2.880 por ano</div>
-            <span class="plan-saving">Economize 20%</span>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>Sistema completo</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg><strong>30 dias de Teste Gratuito</strong></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>Usuários ilimitados da APM</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>Suporte incluído</li>
-            </ul>
-            <button type="button" class="saga-btn saga-btn-ghost plan-cta" data-plan="Anual">Assinar</button>
-          </article>
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="plan h-100 reveal d2">
+              <div class="plan-name">Anual</div>
+              <div class="plan-price"><span class="cur">R$</span><span class="val">240</span><span
+                  class="per">/mês</span></div>
+              <div class="plan-total">Cobrado R$ 2.880 por ano</div>
+              <span class="plan-saving">Economize 20%</span>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Sistema completo</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg><strong>30 dias de Teste Gratuito</strong></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Usuários ilimitados da APM</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Suporte incluído</li>
+              </ul>
+              <button type="button" class="saga-btn saga-btn-ghost plan-cta" data-plan="Anual">Assinar</button>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 11. FAQ -->
-    <section class="block bg-gray" id="faq">
+    <!-- FAQ -->
+    <section class="block" id="faq">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">FAQ</span>
-          <h2 style="margin-top:14px;">Perguntas frequentes</h2>
+          <h2>Perguntas frequentes</h2>
           <p class="lead">Não encontrou sua dúvida? Fale com a equipe pelo formulário abaixo.</p>
         </div>
         <div class="faq-wrap">
           <details class="faq-item reveal" open>
             <summary>O SAGA serve para qualquer ETEC?</summary>
-            <div class="faq-answer">Sim. O sistema foi pensado para as APMs das Escolas Técnicas Estaduais (ETEC's) em conformidade com o Estatuto da APM.</div>
+            <div class="faq-answer">Sim. O sistema foi pensado para as APMs das Escolas Técnicas Estaduais (ETECs) em
+              conformidade com o Estatuto da APM.</div>
           </details>
           <details class="faq-item reveal">
             <summary>Posso testar antes de assinar?</summary>
-            <div class="faq-answer">Claro! Antes de fechar qualquer plano, você terá acesso ao teste gratuito por 30 dias.</div>
+            <div class="faq-answer">Claro! Antes de fechar qualquer plano, você terá acesso ao teste gratuito por 30
+              dias.</div>
           </details>
           <details class="faq-item reveal">
             <summary>Preciso trocar meu sistema atual?</summary>
@@ -510,8 +603,8 @@
           </details>
           <details class="faq-item reveal">
             <summary>Preciso de treinamento?</summary>
-            <div class="faq-answer">Não para o básico. Oferecemos tutoriais de demonstração e suporte para a equipe da APM
-              da ETEC.</div>
+            <div class="faq-answer">Não para o básico. Oferecemos tutoriais de demonstração e suporte para a equipe da
+              APM da ETEC.</div>
           </details>
           <details class="faq-item reveal">
             <summary>Qual a diferença entre os planos?</summary>
@@ -527,131 +620,129 @@
     </section>
 
     <!-- Formulário de Teste Gratuito -->
-    <section class="block" id="demonstracao">
-      <div class="container demo-wrap">
-        <div class="demo-side reveal">
-          <span class="eyebrow">Teste Gratuito</span>
-          <h2 style="margin-top:14px;">Experimente o SAGA gratuitamente por<br>30 dias</h2>
-          <p class="lead" style="margin-top:14px;color:#4a5068;">Tenha a oportunidade de conhecer o SAGA na prática por 30 dias gratuitamente, explorar seus recursos e entender como ele pode simplificar a gestão da sua APM.</p>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>Conheça os módulos e funcionalidades do sistema.</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>Explore os recursos </li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>Sem compromisso e sem cartão de crédito.</li>
-          </ul>
-          <p class="helper" style="margin-top:18px;">Preencha o formulário para solicitar seu acesso gratuito. Nossa equipe entrará em contato para orientar os próximos passos.</p>
-        </div>
-
-        <div class="demo-form reveal d1">
-          <div id="demoFormArea">
-            <form id="demoForm" novalidate>
-              <div class="form-grid">
-                <div class="field-saga">
-                  <label for="fNome">Seu nome completo</label>
-                  <input id="fNome" name="nome" type="text" autocomplete="name" maxlength="120"
-                    placeholder="Ex.: Ana Paula Souza" aria-describedby="errNome" required>
-                  <span class="error-msg" id="errNome"></span>
-                </div>
-                <div class="field-saga">
-                  <label for="fEscola">ETEC</label>
-                  <input id="fEscola" name="escola" type="text" autocomplete="organization" maxlength="140"
-                    placeholder="Ex.: ETEC (Nome)" aria-describedby="errEscola" required>
-                  <span class="error-msg" id="errEscola"></span>
-                </div>
-                <div class="field-saga">
-                  <label for="fEmail">E-mail</label>
-                  <input id="fEmail" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254"
-                    placeholder="voce@cps.sp.gov.br" aria-describedby="errEmail" required>
-                  <span class="helper">Usaremos apenas para o contato de teste gratuito.</span>
-                  <span class="error-msg" id="errEmail"></span>
-                </div>
-                <div class="field-saga">
-                  <label for="fTelefone">WhatsApp</label>
-                  <input id="fTelefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" maxlength="15"
-                    placeholder="(11) 99999-9999" aria-describedby="errTelefone" required>
-                  <span class="helper">Com DDD. Ex.: (11) 99999-9999</span>
-                  <span class="error-msg" id="errTelefone"></span>
-                </div>
-                <div class="field-saga full-span">
-                  <label for="fMensagem">Mensagem</label>
-                  <textarea id="fMensagem" name="mensagem" maxlength="600" aria-describedby="errMensagem"
-                    placeholder="Conte um pouco sobre as dificuldades da sua APM."></textarea>
-                  <span class="helper">Opcional.</span>
-                  <span class="error-msg" id="errMensagem"></span>
-                </div>
-              </div>
-              <input type="hidden" id="fPlano" name="plano" value="">
-              <div class="row" style="margin-top:22px;">
-                <button type="submit" class="saga-btn saga-btn-green saga-btn-block" id="submitDemo">Solicitar Teste Gratuito</button>
-              </div>
-              <p class="demo-note">Seus dados serão utilizados exclusivamente para entrar em contato sobre sua solicitação de teste gratuito.</p>
-              <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
-            </form>
+    <section class="block bg-gray" id="demonstracao">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-start">
+          <div class="col-12 col-lg-5 demo-side reveal">
+            <span class="eyebrow">Teste Gratuito</span>
+            <h2>Experimente o SAGA gratuitamente por 30 dias</h2>
+            <p class="lead">Conheça o SAGA na prática por 30 dias, explore seus recursos e entenda como ele pode
+              simplificar a gestão da sua APM.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>Conheça os módulos e funcionalidades do sistema.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>Explore todos os recursos com a sua equipe.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>Sem compromisso e sem cartão de crédito.</li>
+            </ul>
+            <p class="helper mt-3">Preencha o formulário para solicitar seu acesso gratuito. Nossa equipe entrará em
+              contato para orientar os próximos passos.</p>
           </div>
-          <div class="success-box" id="successBox" role="status" aria-live="polite">
-            <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
-                aria-hidden="true">
-                <polyline points="20 6 9 17 4 12" />
-              </svg></div>
-            <h3>Recebemos sua solicitação!</h3>
-            <p class="helper" style="margin-top:8px;">Nossa equipe entrará em contato para orientar você sobre como começar a experimentar o SAGA gratuitamente.</p>
-            <button type="button" class="saga-btn saga-btn-ghost saga-btn-sm" id="resetDemo"
-              style="margin-top:18px;">Enviar outra solicitação</button>
+
+          <div class="col-12 col-lg-7">
+            <div class="demo-form reveal d1">
+              <div id="demoFormArea">
+                <form id="demoForm" novalidate>
+                  <div class="row g-3">
+                    <div class="col-12 col-md-6 field-saga">
+                      <label for="fNome">Seu nome completo</label>
+                      <input id="fNome" name="nome" type="text" autocomplete="name" maxlength="120"
+                        placeholder="Ex.: Ana Paula Souza" aria-describedby="errNome" required>
+                      <span class="error-msg" id="errNome"></span>
+                    </div>
+                    <div class="col-12 col-md-6 field-saga">
+                      <label for="fEscola">ETEC</label>
+                      <input id="fEscola" name="escola" type="text" autocomplete="organization" maxlength="140"
+                        placeholder="Ex.: ETEC (Nome)" aria-describedby="errEscola" required>
+                      <span class="error-msg" id="errEscola"></span>
+                    </div>
+                    <div class="col-12 col-md-6 field-saga">
+                      <label for="fEmail">E-mail</label>
+                      <input id="fEmail" name="email" type="email" autocomplete="email" inputmode="email"
+                        maxlength="254" placeholder="voce@cps.sp.gov.br" aria-describedby="hlpEmail errEmail" required>
+                      <span class="helper" id="hlpEmail">Usaremos apenas para o contato de teste gratuito.</span>
+                      <span class="error-msg" id="errEmail"></span>
+                    </div>
+                    <div class="col-12 col-md-6 field-saga">
+                      <label for="fTelefone">WhatsApp</label>
+                      <input id="fTelefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel"
+                        maxlength="15" placeholder="(11) 99999-9999" aria-describedby="hlpTelefone errTelefone"
+                        required>
+                      <span class="helper" id="hlpTelefone">Com DDD. Ex.: (11) 99999-9999</span>
+                      <span class="error-msg" id="errTelefone"></span>
+                    </div>
+                    <div class="col-12 field-saga">
+                      <label for="fMensagem">Mensagem <span class="helper">(opcional)</span></label>
+                      <textarea id="fMensagem" name="mensagem" maxlength="600" aria-describedby="errMensagem"
+                        placeholder="Conte um pouco sobre as dificuldades da sua APM."></textarea>
+                      <span class="error-msg" id="errMensagem"></span>
+                    </div>
+                  </div>
+                  <input type="hidden" id="fPlano" name="plano" value="">
+                  <button type="submit" class="saga-btn saga-btn-green w-100 mt-4" id="submitDemo">
+                    <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.11c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.28-.68-2.78-1.1-4.55-3.94-4.69-4.12-.13-.18-1.12-1.49-1.12-2.84s.71-2.01.96-2.29c.25-.27.55-.34.73-.34l.52.01c.17.01.39-.06.61.47.24.56.79 1.93.86 2.07.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34Z" />
+                    </svg>
+                    Solicitar pelo WhatsApp</button>
+                  <p class="demo-note">Ao enviar, o WhatsApp abre com a sua solicitação pronta. É só tocar em
+                    enviar.</p>
+                  <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
+                </form>
+              </div>
+              <div class="success-box" id="successBox" role="status" aria-live="polite">
+                <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.6" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg></div>
+                <h3>Quase lá!</h3>
+                <p class="helper mt-2">Finalize enviando a mensagem no WhatsApp. Nossa equipe responderá por lá para
+                  liberar o seu teste gratuito.</p>
+                <div class="d-grid gap-2 mt-3 success-actions">
+                  <a href="#" class="saga-btn saga-btn-green" id="whatsLink" target="_blank" rel="noopener">O WhatsApp
+                    não abriu? Toque aqui</a>
+                  <button type="button" class="saga-btn saga-btn-ghost saga-btn-sm" id="resetDemo">Preencher
+                    novamente</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 12. CTA final -->
-    <!-- <section class="block" style="padding-top:0">
-      <div class="container">
-        <div class="final-cta reveal">
-          <span class="eyebrow eyebrow-dark">Comece hoje</span>
-          <h2 style="margin-top:16px;">Pronto para organizar a gestão da sua APM?</h2>
-          <p>Deixe a planilha de lado e tenha prestação de contas, associados, eventos e biblioteca em um só sistema,
-            feito para a realidade das APMs das ETEC's.</p>
-          <div class="hero-ctas">
-            <a href="#planos" class="saga-btn saga-btn-primary">Assinar agora</a>
-            <a href="#demonstracao" class="saga-btn saga-btn-outline">Falar com a equipe</a>
-          </div>
-          <p class="microcopy">Sem fidelidade obrigatória · Suporte em português · Valores de exemplo</p>
-        </div>
-      </div>
-    </section> -->
-
   </main>
 
-  <!-- 13. Footer -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
           <a href="#topo" class="logo" aria-label="SAGA — voltar ao topo">
-            <img src="img/logo-apm.png" width="250" height="107" alt="SAGA — Sistema de Apoio à Gestão das APMs"
+            <img src="img/logo-apm.png" width="180" height="77" alt="SAGA — Sistema de Apoio à Gestão das APMs"
               loading="lazy" decoding="async">
           </a>
           <p class="footer-desc">Plataforma de gestão financeira e administrativa para as Associações de Pais e Mestres
-            das ETEC's.</p>
+            das ETECs.</p>
         </div>
-        <div>
+        <div class="col-6 col-md-3 col-lg-2 offset-lg-1 footer-col">
           <h4>Navegação</h4>
           <a href="#funcionalidades">Funcionalidades</a>
+          <a href="#sistema">Conheça o sistema</a>
           <a href="#planos">Planos</a>
           <a href="#seguranca">Segurança</a>
           <a href="#faq">FAQ</a>
         </div>
-        <div>
+        <div class="col-6 col-md-3 col-lg-2 footer-col">
           <h4>Recursos</h4>
-          <a href="#demonstracao">Agendar Teste Gratuito</a>
+          <a href="#demonstracao">Teste Gratuito</a>
         </div>
-        <div>
+        <div class="col-12 col-lg-3 footer-col">
           <h4>Contato</h4>
-          <p class="footer-desc">Entre em contato pelo formulário para conhecer o sistema.</p>
+          <p class="footer-desc mt-0">Entre em contato pelo formulário para conhecer o sistema.</p>
         </div>
       </div>
       <div class="footer-disclaimer">
@@ -660,22 +751,54 @@
         profissionais habilitados.
       </div>
       <div class="footer-bottom">
-        <span>© <span id="currentYear">2026</span> SAGA — Sistema de Apoio à Gestão das APM's. Todos os direitos
+        <span>© <span id="currentYear">2026</span> SAGA — Sistema de Apoio à Gestão das APMs. Todos os direitos
           reservados.</span>
         <a href="#topo" class="footer-top-link">Voltar ao início</a>
       </div>
     </div>
   </footer>
 
+  <!-- Galeria ampliada (montada pelo JS a partir de #galleryGrid) -->
+  <div class="modal fade gallery-modal" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-sm-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="galleryModalTitle">Telas do sistema</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+            aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <div id="galleryCarousel" class="carousel slide" data-bs-touch="true" data-bs-interval="false">
+            <div class="carousel-inner" id="galleryInner"></div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Próxima</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Voltar ao topo -->
-  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
       aria-hidden="true">
       <polyline points="18 15 12 9 6 15" />
     </svg>
   </button>
 
-  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
+    defer></script>
+  <script src="js/script.js?v=3" defer></script>
 </body>
 
 </html>
