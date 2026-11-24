@@ -420,6 +420,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (e.pointerType === 'touch') return;
                 if (e.button !== 0) return;
                 if (e.target.closest('button, a, input')) return;
+                // No computador os módulos viram grade: não há o que arrastar
+                if (carousel.scrollWidth <= carousel.clientWidth + 1) return;
 
                 dragging = true;
                 dragMoved = false;
@@ -486,12 +488,8 @@ document.addEventListener('DOMContentLoaded', function () {
     planButtons.forEach(function (btn) {
         btn.addEventListener('click', function () {
             var selectedPlan = btn.getAttribute('data-plan') || '';
-            var msg = document.getElementById('fMensagem');
             var planField = document.getElementById('fPlano');
             if (planField) planField.value = selectedPlan;
-            if (msg && !msg.value.trim()) {
-                msg.value = 'Tenho interesse no plano ' + selectedPlan + '.';
-            }
             var demoSection = document.getElementById('demonstracao');
             if (demoSection) demoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             window.setTimeout(function () {
@@ -535,13 +533,13 @@ document.addEventListener('DOMContentLoaded', function () {
             case 'fTelefone':
                 var digits = v.replace(/\D/g, '');
                 return setError(el, 'errTelefone', (digits.length < 10 || digits.length > 11) ? 'Informe um telefone com DDD (10 ou 11 dígitos).' : '');
-            case 'fMensagem':
-                return setError(el, 'errMensagem', v.length > 600 ? 'A mensagem pode ter no máximo 600 caracteres.' : '');
+            // case 'fMensagem':
+            //     return setError(el, 'errMensagem', v.length > 600 ? 'A mensagem pode ter no máximo 600 caracteres.' : '');
         }
         return true;
     }
 
-    ['fNome', 'fEscola', 'fEmail', 'fTelefone', 'fMensagem'].forEach(function (id) {
+    ['fNome', 'fEscola', 'fEmail', 'fTelefone'].forEach(function (id) {
         var el = document.getElementById(id);
         el.addEventListener('blur', function () { validateField(id); });
         el.addEventListener('input', function () {
@@ -571,7 +569,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function buildWhatsMessage() {
         var v = function (id) { return document.getElementById(id).value.trim(); };
         var plano = v('fPlano');
-        var mensagem = v('fMensagem');
+        // var mensagem = v('fMensagem');
         var linhas = [
             'Olá! Gostaria de solicitar o *Teste Gratuito do SAGA*.',
             '',
@@ -581,7 +579,7 @@ document.addEventListener('DOMContentLoaded', function () {
             '*WhatsApp:* ' + v('fTelefone')
         ];
         if (plano) linhas.push('*Plano de interesse:* ' + plano);
-        if (mensagem) linhas.push('', '*Mensagem:*', mensagem);
+        // if (mensagem) linhas.push('', '*Mensagem:*', mensagem);
         return linhas.join('\n');
     }
 
@@ -629,8 +627,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     resetBtn.addEventListener('click', function () {
         form.reset();
-        ['fNome', 'fEscola', 'fEmail', 'fTelefone', 'fMensagem'].forEach(function (id) {
-            var errorIds = { fNome: 'errNome', fEscola: 'errEscola', fEmail: 'errEmail', fTelefone: 'errTelefone', fMensagem: 'errMensagem' };
+        ['fNome', 'fEscola', 'fEmail', 'fTelefone'].forEach(function (id) {
+            var errorIds = { fNome: 'errNome', fEscola: 'errEscola', fEmail: 'errEmail', fTelefone: 'errTelefone'};
             setError(document.getElementById(id), errorIds[id], '');
         });
         successBox.classList.remove('show');

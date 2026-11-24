@@ -847,6 +847,39 @@ section.block {
     }
 }
 
+/* No computador e tablet os módulos aparecem todos em grade, sem carrossel */
+@media (min-width: 768px) {
+    .mod-track {
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow: visible;
+        scroll-snap-type: none;
+        cursor: auto;
+        user-select: auto;
+        -webkit-user-select: auto;
+        padding: 4px 0 0;
+    }
+
+    .mod-track>.saga-card {
+        flex: 0 0 calc((100% - 20px) / 2);
+    }
+
+    .carousel-wrap .car-btn,
+    .car-dots {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .mod-track {
+        gap: 24px;
+    }
+
+    .mod-track>.saga-card {
+        flex-basis: calc((100% - 48px) / 3);
+    }
+}
+
 /* ===== Galeria de telas ===== */
 .shot {
     margin: 0;
@@ -1054,16 +1087,72 @@ section.block {
 }
 
 /* ===== Planos ===== */
-.plans-intro {
-    max-width: 760px;
-    margin: 0 auto 36px;
+.plans-included {
+    max-width: 880px;
+    margin: 0 auto 40px;
+    padding: 18px 22px;
     text-align: center;
-    font-size: 1rem;
-    color: #2e3652;
     background: #fff;
-    border-radius: 14px;
-    padding: 14px 18px;
     border: 1px solid #dfe3ee;
+    border-radius: 16px;
+}
+
+.plans-included-title {
+    margin-bottom: 12px;
+    color: var(--saga-blue);
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.plans-included ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.plans-included li {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #2e3652;
+    font-size: .94rem;
+    font-weight: 600;
+}
+
+.plans-included svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--saga-green);
+}
+
+.plan-tagline {
+    margin-top: 4px;
+    color: var(--text-muted-saga);
+    font-size: .92rem;
+}
+
+@media (max-width: 767.98px) {
+    .plans-included {
+        margin-bottom: 32px;
+        padding: 16px;
+        text-align: left;
+    }
+
+    .plans-included-title {
+        text-align: center;
+    }
+
+    .plans-included ul {
+        display: grid;
+        gap: 8px;
+    }
 }
 
 .plans-row {
@@ -1167,6 +1256,7 @@ section.block {
     padding: 0;
     margin: 22px 0 26px;
     display: grid;
+    align-content: start;
     gap: 11px;
     flex: 1;
     width: 100%;
@@ -1427,7 +1517,7 @@ section.block {
 }
 
 .site-footer .logo img {
-    width: 180px;
+    width: 280px;
     height: auto;
 }
 

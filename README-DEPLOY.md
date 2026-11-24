@@ -16,7 +16,7 @@ O layout usa **Bootstrap 5.3.3** via CDN (jsDelivr, com verificação de integri
 
 ## Galeria "Conheça o sistema"
 
-As imagens em `img/sistema/` são capturas reais do SAGA (1440×900, JPG), com nomes de pessoas trocados por nomes fictícios. Para trocar ou adicionar telas:
+As imagens em `img/sistema/` são capturas reais do SAGA (2160×1350, JPG), com nomes de pessoas trocados por nomes fictícios. Ao trocar uma imagem mantendo o mesmo nome de arquivo, aumente o `?v=` no `src` para o navegador não mostrar a versão antiga. Para trocar ou adicionar telas:
 
 1. Tire as capturas em tela larga (recomendado 1600×1000 px, proporção 16:10) e exporte em `.webp` ou `.png`.
 2. Salve em `img/sistema/` (ex.: `01-painel.webp`).

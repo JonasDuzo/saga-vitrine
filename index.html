@@ -34,7 +34,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <!-- ?v= força o celular a baixar a versão nova. Aumente o número a cada atualização. -->
-  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/style.css?v=5">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 
@@ -65,7 +65,7 @@
             <li class="nav-item"><a class="nav-link" href="#seguranca">Segurança</a></li>
             <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
             <li class="nav-item nav-cta">
-              <a href="#planos" class="saga-btn saga-btn-primary saga-btn-sm">Assinar agora</a>
+              <a href="#demonstracao" class="saga-btn saga-btn-primary saga-btn-sm">Assinar agora</a>
             </li>
           </ul>
         </div>
@@ -80,20 +80,23 @@
       <div class="container">
         <div class="row g-4 g-lg-5 align-items-center hero-row">
           <div class="col-12 col-lg-6 hero-content">
-            <span class="hero-kicker"><span class="hero-kicker-dot" aria-hidden="true"></span>Sistema de gestão para APMs de ETECs</span>
+            <!-- <span class="hero-kicker"><span class="hero-kicker-dot" aria-hidden="true"></span>Sistema de gestão para APMs de ETECs</span> -->
             <h1 id="heroTitle">Chega de gerenciar a APM da ETEC em
-              <span class="hero-highlight">planilhas e cadernos</span>.</h1>
+              <span class="hero-highlight">planilhas e cadernos</span>.
+            </h1>
             <p class="hero-sub">Financeiro, associados, atas, cantina, eventos, armários e biblioteca em um só lugar.
-              <span class="hero-sub-extra">Uma gestão mais simples e transparente, em conformidade com o Estatuto da APM.</span></p>
+              <span class="hero-sub-extra">Uma gestão mais simples e transparente, em conformidade com o Estatuto da
+                APM.</span>
+            </p>
             <div class="hero-ctas">
               <a href="#demonstracao" class="saga-btn saga-btn-primary">Testar grátis</a>
               <a href="#planos" class="saga-btn saga-btn-outline">Ver planos</a>
             </div>
-            <ul class="hero-trust" aria-label="Destaques">
+            <!-- <ul class="hero-trust" aria-label="Destaques">
               <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.6 4.3 10.3l-1.4 1.4 4.7 4.7 9.5-9.5-1.4-1.4z" fill="currentColor"/></svg>Teste gratuito</li>
               <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.6 4.3 10.3l-1.4 1.4 4.7 4.7 9.5-9.5-1.4-1.4z" fill="currentColor"/></svg>Conforme o Estatuto</li>
               <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.6 13.6 4.3 10.3l-1.4 1.4 4.7 4.7 9.5-9.5-1.4-1.4z" fill="currentColor"/></svg>100% online</li>
-            </ul>
+            </ul> -->
           </div>
           <div class="col-12 col-lg-6">
             <!-- O iframe é criado pelo js/script.js a partir de data-video-url (YouTube ou Vimeo). -->
@@ -101,7 +104,9 @@
               <a class="hero-video-placeholder" href="https://www.youtube.com/watch?v=FPPXY3cn5FY" target="_blank"
                 rel="noopener">
                 <span class="hero-video-play" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
                 </span>
                 <span class="hero-video-placeholder-title">Assista à apresentação do SAGA</span>
                 <span class="hero-video-placeholder-text">Abre o vídeo no YouTube</span>
@@ -172,7 +177,7 @@
         <div class="pain-bottom reveal">
           <p><strong>Resultado:</strong> horas perdidas com conferência manual, informações descentralizadas e pouca
             confiança na prestação de contas. O SAGA organiza essa rotina desde o primeiro lançamento.</p>
-          <a href="#funcionalidades" class="saga-btn saga-btn-green saga-btn-sm">Ver como resolvemos</a>
+          <a href="#demonstracao" class="saga-btn saga-btn-green saga-btn-sm">Testar o SAGA</a>
         </div>
       </div>
     </section>
@@ -348,7 +353,8 @@
         <div class="section-head reveal">
           <span class="eyebrow">Conheça o sistema</span>
           <h2>Veja o SAGA por dentro</h2>
-          <p class="lead">As principais telas que a equipe da APM usa no dia a dia. Toque em uma imagem para ampliar.</p>
+          <p class="lead">As principais telas que a equipe da APM usa no dia a dia. Toque em uma imagem para ampliar.
+          </p>
         </div>
 
         <!--
@@ -359,8 +365,8 @@
         <div class="row g-3 g-md-4 row-cols-1 row-cols-sm-2 row-cols-lg-3" id="galleryGrid">
           <div class="col">
             <figure class="shot reveal">
-              <button type="button" class="shot-btn" aria-label="Ampliar: Painel inicial">
-                <img src="img/sistema/01-painel.jpg" width="1440" height="900" loading="lazy" decoding="async"
+              <button type="button" class="shot-btn" aria-label="Ampliar: Painel geral">
+                <img src="img/sistema/01-painel.jpg?v=2" width="1440" height="900" loading="lazy" decoding="async"
                   alt="Painel geral do SAGA com saldo do ano, receitas, despesas, fundo de reserva e gráficos">
               </button>
               <figcaption><strong>Painel geral</strong><span>Saldo, receitas, despesas e fundo de reserva
@@ -369,29 +375,29 @@
           </div>
           <div class="col">
             <figure class="shot reveal d1">
-              <button type="button" class="shot-btn" aria-label="Ampliar: Financeiro">
-                <img src="img/sistema/02-financeiro.jpg" width="1440" height="900" loading="lazy" decoding="async"
-                  alt="Tela de movimentações financeiras do SAGA, com receitas e despesas por fonte">
+              <button type="button" class="shot-btn" aria-label="Ampliar: Armários">
+                <img src="img/sistema/02-armarios.jpg?v=2" width="1440" height="900" loading="lazy" decoding="async"
+                  alt="Mapa de armários da biblioteca no SAGA, com armários disponíveis, ocupados e em manutenção">
               </button>
-              <figcaption><strong>Financeiro</strong><span>Receitas e despesas detalhadas por fonte, com
-                  exportação para Excel.</span></figcaption>
+              <figcaption><strong>Armários</strong><span>Mapa visual de todos os armários: livres, ocupados e
+                  em manutenção.</span></figcaption>
             </figure>
           </div>
           <div class="col">
             <figure class="shot reveal d2">
-              <button type="button" class="shot-btn" aria-label="Ampliar: Prestação de contas">
-                <img src="img/sistema/03-prestacao-contas.jpg" width="1440" height="900" loading="lazy"
-                  decoding="async" alt="Balanço anual da APM no SAGA, com o cálculo do fundo de reserva">
+              <button type="button" class="shot-btn" aria-label="Ampliar: Central de relatórios">
+                <img src="img/sistema/03-relatorios.jpg?v=2" width="1440" height="900" loading="lazy" decoding="async"
+                  alt="Central de relatórios do SAGA, com balancete, balanço anual e relatórios de cada módulo">
               </button>
-              <figcaption><strong>Prestação de contas</strong><span>Balanço anual mês a mês e fundo de
-                  reserva calculado conforme o Estatuto.</span></figcaption>
+              <figcaption><strong>Prestação de contas</strong><span>Balancete, balanço anual e relatórios de todos
+                  os módulos em um só lugar.</span></figcaption>
             </figure>
           </div>
           <div class="col">
             <figure class="shot reveal">
               <button type="button" class="shot-btn" aria-label="Ampliar: Associados">
-                <img src="img/sistema/04-associados.jpg" width="1440" height="900" loading="lazy" decoding="async"
-                  alt="Lista de associados da APM no SAGA">
+                <img src="img/sistema/04-associados.jpg?v=2" width="1440" height="900" loading="lazy" decoding="async"
+                  alt="Associados da APM no SAGA, com totais por tipo e lista de cadastro">
               </button>
               <figcaption><strong>Associados</strong><span>Natos, admitidos e honorários, classificados
                   conforme o Estatuto.</span></figcaption>
@@ -400,7 +406,7 @@
           <div class="col">
             <figure class="shot reveal d1">
               <button type="button" class="shot-btn" aria-label="Ampliar: Cantina">
-                <img src="img/sistema/05-cantina.jpg" width="1440" height="900" loading="lazy" decoding="async"
+                <img src="img/sistema/05-cantina.jpg?v=2" width="1440" height="900" loading="lazy" decoding="async"
                   alt="Painel da cantina no SAGA, com vendas, lucro bruto e formas de pagamento">
               </button>
               <figcaption><strong>Cantina</strong><span>Vendas, lucro, gastos e formas de pagamento no mesmo
@@ -409,12 +415,12 @@
           </div>
           <div class="col">
             <figure class="shot reveal d2">
-              <button type="button" class="shot-btn" aria-label="Ampliar: Atas">
-                <img src="img/sistema/06-atas.jpg" width="1440" height="900" loading="lazy" decoding="async"
-                  alt="Lista de atas de assembleias e reuniões no SAGA">
+              <button type="button" class="shot-btn" aria-label="Ampliar: Biblioteca">
+                <img src="img/sistema/06-biblioteca.jpg?v=2" width="1440" height="900" loading="lazy" decoding="async"
+                  alt="Painel da biblioteca no SAGA, com receitas, ocupação de armários e vagas e cotas de cópias">
               </button>
-              <figcaption><strong>Atas</strong><span>Assembleias, reuniões e Conselho Fiscal, do rascunho
-                  à aprovação.</span></figcaption>
+              <figcaption><strong>Biblioteca</strong><span>Armários, vagas e cotas de cópias com ocupação e
+                  receitas em tempo real.</span></figcaption>
             </figure>
           </div>
         </div>
@@ -496,81 +502,66 @@
           <h2>Escolha o plano ideal para a sua APM</h2>
           <p class="lead">Um único sistema completo para a APM da sua ETEC.</p>
         </div>
-        <p class="plans-intro reveal"><strong>Todos os planos incluem o sistema completo, com todos os
-            módulos.</strong></p>
+        <div class="plans-included reveal">
+          <p class="plans-included-title">Todos os planos incluem</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>Sistema completo, com os 11 módulos</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>30 dias de teste gratuito</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>Usuários ilimitados da APM</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>Atualizações sem custo extra</li>
+          </ul>
+        </div>
         <div class="row g-4 justify-content-center plans-row">
           <div class="col-12 col-md-6 col-lg-4">
             <article class="plan h-100 reveal">
               <div class="plan-name">Mensal</div>
-              <div class="plan-price"><span class="cur">R$</span><span class="val">300</span><span
+              <p class="plan-tagline">Para começar sem compromisso.</p>
+              <div class="plan-price"><span class="cur">R$</span><span class="val">350</span><span
                   class="per">/mês</span></div>
               <div class="plan-total">Cobrança mensal</div>
               <ul>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>Sistema completo</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg><strong>30 dias de Teste Gratuito</strong></li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>Usuários ilimitados da APM</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>Suporte incluído</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span><strong>Sem fidelidade:</strong> cancele quando quiser</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span>Suporte por WhatsApp e e-mail em horário comercial</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span>Treinamento online de boas-vindas</span></li>
               </ul>
-              <button type="button" class="saga-btn saga-btn-ghost plan-cta" data-plan="Mensal">Assinar</button>
+              <a href="#demonstracao" class="saga-btn saga-btn-ghost plan-cta" data-plan="Mensal">Assinar o Mensal</a>
             </article>
           </div>
 
           <div class="col-12 col-md-6 col-lg-4">
-            <article class="plan featured h-100 reveal d1">
+            <article class="plan h-100 reveal featured d1">
               <span class="plan-badge">Recomendado</span>
               <div class="plan-name">Semestral</div>
-              <div class="plan-price"><span class="cur">R$</span><span class="val">270</span><span
+              <p class="plan-tagline">O melhor custo para a gestão do dia a dia.</p>
+              <div class="plan-price"><span class="cur">R$</span><span class="val">297,50</span><span
                   class="per">/mês</span></div>
-              <div class="plan-total">Cobrado R$ 1.620 a cada 6 meses</div>
-              <span class="plan-saving">Economize 10%</span>
+              <div class="plan-total">Cobrado R$ 1.785 a cada 6 meses</div>
+              <span class="plan-saving">Economize 15%</span>
               <ul>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>Sistema completo</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg><strong>30 dias de Teste Gratuito</strong></li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>Usuários ilimitados da APM</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>Suporte incluído</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span><strong>Tudo do plano Mensal</strong></span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span><strong>Suporte prioritário</strong> no WhatsApp</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span>Importação das suas planilhas (associados e saldo inicial)</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span>Treinamento ao vivo para a diretoria</span></li>
               </ul>
-              <button type="button" class="saga-btn saga-btn-primary plan-cta" data-plan="Semestral">Assinar</button>
+              <a href="#demonstracao" class="saga-btn saga-btn-primary plan-cta" data-plan="Semestral">Assinar o Semestral</a>
             </article>
           </div>
 
           <div class="col-12 col-md-6 col-lg-4">
             <article class="plan h-100 reveal d2">
               <div class="plan-name">Anual</div>
-              <div class="plan-price"><span class="cur">R$</span><span class="val">240</span><span
+              <p class="plan-tagline">Para cobrir o mandato inteiro da diretoria.</p>
+              <div class="plan-price"><span class="cur">R$</span><span class="val">315</span><span
                   class="per">/mês</span></div>
-              <div class="plan-total">Cobrado R$ 2.880 por ano</div>
-              <span class="plan-saving">Economize 20%</span>
+              <div class="plan-total">Cobrado R$ 3.780 por ano</div>
+              <span class="plan-saving">Economize 10%</span>
               <ul>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>Sistema completo</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg><strong>30 dias de Teste Gratuito</strong></li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>Usuários ilimitados da APM</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>Suporte incluído</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span><strong>Tudo do plano Semestral</strong></span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span><strong>Preço garantido</strong> por 12 meses</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span>Treinamento da nova diretoria na troca de mandato</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg><span>Reunião de acompanhamento a cada trimestre</span></li>
               </ul>
-              <button type="button" class="saga-btn saga-btn-ghost plan-cta" data-plan="Anual">Assinar</button>
+              <a href="#demonstracao" class="saga-btn saga-btn-ghost plan-cta" data-plan="Anual">Assinar o Anual</a>
             </article>
           </div>
         </div>
@@ -583,7 +574,7 @@
         <div class="section-head reveal">
           <span class="eyebrow">FAQ</span>
           <h2>Perguntas frequentes</h2>
-          <p class="lead">Não encontrou sua dúvida? Fale com a equipe pelo formulário abaixo.</p>
+          <p class="lead">Não encontrou sua dúvida? <a href="#demonstracao">Fale com a equipe.</a></p>
         </div>
         <div class="faq-wrap">
           <details class="faq-item reveal" open>
@@ -629,7 +620,7 @@
       <div class="container">
         <div class="row g-4 g-lg-5 align-items-start">
           <div class="col-12 col-lg-5 demo-side reveal">
-            <span class="eyebrow">Teste Gratuito</span>
+            <!-- <span class="eyebrow">Teste Gratuito</span> -->
             <h2>Experimente o SAGA gratuitamente por 30 dias</h2>
             <p class="lead">Conheça o SAGA na prática por 30 dias, explore seus recursos e entenda como ele pode
               simplificar a gestão da sua APM.</p>
@@ -644,8 +635,6 @@
                   <polyline points="20 6 9 17 4 12" />
                 </svg>Sem compromisso e sem cartão de crédito.</li>
             </ul>
-            <p class="helper mt-3">Preencha o formulário para solicitar seu acesso gratuito. Nossa equipe entrará em
-              contato para orientar os próximos passos.</p>
           </div>
 
           <div class="col-12 col-lg-7">
@@ -653,8 +642,10 @@
               <div id="demoFormArea">
                 <form id="demoForm" novalidate>
                   <div class="row g-3">
+                    <h3 class="text-center text-uppercase">Entre em Contato Conosco</h3>
+                    <hr>
                     <div class="col-12 col-md-6 field-saga">
-                      <label for="fNome">Seu nome completo</label>
+                      <label for="fNome">Nome Completo</label>
                       <input id="fNome" name="nome" type="text" autocomplete="name" maxlength="120"
                         placeholder="Ex.: Ana Paula Souza" aria-describedby="errNome" required>
                       <span class="error-msg" id="errNome"></span>
@@ -669,28 +660,28 @@
                       <label for="fEmail">E-mail</label>
                       <input id="fEmail" name="email" type="email" autocomplete="email" inputmode="email"
                         maxlength="254" placeholder="voce@cps.sp.gov.br" aria-describedby="hlpEmail errEmail" required>
-                      <span class="helper" id="hlpEmail">Usaremos apenas para o contato de teste gratuito.</span>
+                      <!-- <span class="helper" id="hlpEmail">Usaremos apenas para o contato de teste gratuito.</span> -->
                       <span class="error-msg" id="errEmail"></span>
                     </div>
                     <div class="col-12 col-md-6 field-saga">
                       <label for="fTelefone">WhatsApp</label>
-                      <input id="fTelefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel"
-                        maxlength="15" placeholder="(11) 99999-9999" aria-describedby="hlpTelefone errTelefone"
-                        required>
-                      <span class="helper" id="hlpTelefone">Com DDD. Ex.: (11) 99999-9999</span>
+                      <input id="fTelefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" maxlength="15"
+                        placeholder="(11) 99999-9999" aria-describedby="hlpTelefone errTelefone" required>
+                      <!-- <span class="helper" id="hlpTelefone">Com DDD. Ex.: (11) 99999-9999</span> -->
                       <span class="error-msg" id="errTelefone"></span>
                     </div>
-                    <div class="col-12 field-saga">
+                    <!-- <div class="col-12 field-saga">
                       <label for="fMensagem">Mensagem <span class="helper">(opcional)</span></label>
                       <textarea id="fMensagem" name="mensagem" maxlength="600" aria-describedby="errMensagem"
                         placeholder="Conte um pouco sobre as dificuldades da sua APM."></textarea>
                       <span class="error-msg" id="errMensagem"></span>
-                    </div>
+                    </div> -->
                   </div>
                   <input type="hidden" id="fPlano" name="plano" value="">
                   <button type="submit" class="saga-btn saga-btn-green w-100 mt-4" id="submitDemo">
                     <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.11c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.28-.68-2.78-1.1-4.55-3.94-4.69-4.12-.13-.18-1.12-1.49-1.12-2.84s.71-2.01.96-2.29c.25-.27.55-.34.73-.34l.52.01c.17.01.39-.06.61.47.24.56.79 1.93.86 2.07.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34Z" />
+                      <path
+                        d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.11c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.28-.68-2.78-1.1-4.55-3.94-4.69-4.12-.13-.18-1.12-1.49-1.12-2.84s.71-2.01.96-2.29c.25-.27.55-.34.73-.34l.52.01c.17.01.39-.06.61.47.24.56.79 1.93.86 2.07.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34Z" />
                     </svg>
                     Solicitar pelo WhatsApp</button>
                   <p class="demo-note">Ao enviar, o WhatsApp abre com a sua solicitação pronta. É só tocar em
@@ -699,8 +690,8 @@
                 </form>
               </div>
               <div class="success-box" id="successBox" role="status" aria-live="polite">
-                <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.6" aria-hidden="true">
+                <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                    aria-hidden="true">
                     <polyline points="20 6 9 17 4 12" />
                   </svg></div>
                 <h3>Quase lá!</h3>
@@ -725,15 +716,15 @@
   <footer class="site-footer">
     <div class="container">
       <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-12 col-lg-12 text-center">
           <a href="#topo" class="logo" aria-label="SAGA — voltar ao topo">
             <img src="img/logo-apm.png" width="180" height="77" alt="SAGA — Sistema de Apoio à Gestão das APMs"
               loading="lazy" decoding="async">
           </a>
-          <p class="footer-desc">Plataforma de gestão financeira e administrativa para as Associações de Pais e Mestres
-            das ETECs.</p>
+          <!-- <p class="footer-desc text-center">Plataforma de gestão financeira e administrativa para as Associações de Pais e Mestres
+            das ETECs.</p> -->
         </div>
-        <div class="col-6 col-md-3 col-lg-2 offset-lg-1 footer-col">
+        <!-- <div class="col-6 col-md-3 col-lg-2 offset-lg-1 footer-col">
           <h4>Navegação</h4>
           <a href="#funcionalidades">Funcionalidades</a>
           <a href="#sistema">Conheça o sistema</a>
@@ -748,7 +739,13 @@
         <div class="col-12 col-lg-3 footer-col">
           <h4>Contato</h4>
           <p class="footer-desc mt-0">Entre em contato pelo formulário para conhecer o sistema.</p>
-        </div>
+        </div> -->
+      </div>
+      <div class="text-center mt-2">
+        Sistema hospedado em
+        <a href="https://itapira.hostnet.com.br/" target="_blank">
+          <img src="img/hostnet.png" class="ms-2" width="160">
+        </a>
       </div>
       <div class="footer-disclaimer">
         <strong>Importante:</strong> o SAGA é uma ferramenta de organização e controle. Ela não substitui a orientação
@@ -758,8 +755,10 @@
       <div class="footer-bottom">
         <span>© <span id="currentYear">2026</span> SAGA — Sistema de Apoio à Gestão das APMs. Todos os direitos
           reservados.</span>
+
         <a href="#topo" class="footer-top-link">Voltar ao início</a>
       </div>
+
     </div>
   </footer>
 
@@ -770,19 +769,16 @@
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title" id="galleryModalTitle">Telas do sistema</h2>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-            aria-label="Fechar"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
         <div class="modal-body">
           <div id="galleryCarousel" class="carousel slide" data-bs-touch="true" data-bs-interval="false">
             <div class="carousel-inner" id="galleryInner"></div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel"
-              data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel"
-              data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Próxima</span>
             </button>
@@ -803,7 +799,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
     defer></script>
-  <script src="js/script.js?v=3" defer></script>
+  <script src="js/script.js?v=5" defer></script>
 </body>
 
 </html>
