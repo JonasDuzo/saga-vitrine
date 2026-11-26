@@ -474,7 +474,9 @@ section.block {
 }
 
 @keyframes hl-draw {
-    to { background-size: 100% .2em; }
+    to {
+        background-size: 100% .2em;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1189,7 +1191,8 @@ section.block {
     }
 }
 
-.plan-badge {
+.plan-badge,
+.plan-badge-green {
     position: absolute;
     top: -14px;
     left: 50%;
@@ -1202,6 +1205,16 @@ section.block {
     padding: 6px 16px;
     border-radius: 999px;
     box-shadow: 0 8px 18px -8px rgba(253, 193, 3, .9);
+}
+
+.plan-badge {
+    background: var(--saga-yellow);
+    color: var(--saga-night);
+}
+
+.plan-badge-green {
+    background: var(--saga-green);
+    color: var(--saga-gray);
 }
 
 .plan-name {
@@ -1347,6 +1360,17 @@ section.block {
     color: var(--text-muted-saga);
     font-size: .96rem;
     animation: fadeDown .3s ease;
+}
+
+.faq-answer ul {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0 0;
+    padding-left: 20px;
+}
+
+.faq-answer strong {
+    color: var(--saga-night);
 }
 
 @keyframes fadeDown {
